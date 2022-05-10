@@ -28,22 +28,11 @@
 
     <div class="row">
         
-            <div class="card" style="width: 80%; margin: auto;">
-
-            
-
-                <div class="card-header">
-                    <h3>Test Details</h3>
-                </div>
-                    
-                <div class="card-body">
-                    <p>Ngày: {{$test->created_at}}</p>
-                    <p>Kết quả: {{$test->test_result}}</p>
-                    <p>Hình ảnh:</p>
-                    <img src="{{asset('testImage')}}/{{$test->image_test}}" width="120" alt="">
-                    
-                </div>
-            </div>
+        <div class="card" style="width: 80%; margin: auto;">
+            <h3>
+            Chưa có kết quả test.
+            </h3>
+        </div>
         
     </div>
 

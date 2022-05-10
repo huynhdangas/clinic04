@@ -51,7 +51,11 @@ class PrescriptionController extends Controller
 
     public function showTest($bookingId) {
         $test = Test::where('id_booking', $bookingId)->first();
-        return view('prescription.show_test', compact('test'));
+        if(!$test) {
+            return view('prescription.notest');
+        } else {
+            return view('prescription.show_test', compact('test'));
+        }
 
     }
 

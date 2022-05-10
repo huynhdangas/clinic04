@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,19 +18,21 @@ Route::get('/', [App\Http\Controllers\FrontendController::class, 'index']);
 // patient appointment
 Route::get('/new-appointment/{doctorId}/{date}', [App\Http\Controllers\FrontendController::class, 'show'])->name('create.appointment');
 
+Auth::routes(['verify' => true]);
+
 
 Route::group(['middleware' => ['auth', 'patient']], function () {
-    Route::post('/book/appointment', [App\Http\Controllers\FrontendController::class, 'store'])->name('booking.appointment');
-    Route::get('/my-booking', [App\Http\Controllers\FrontendController::class, 'myBookings'])->name('my.booking');
-    Route::get('/user-profile', [App\Http\Controllers\ProfileController::class, 'index']);
-    Route::post('/user-profile', [App\Http\Controllers\ProfileController::class, 'store'])->name('profile.store');
-    Route::post('/profile-pic', [App\Http\Controllers\ProfileController::class, 'profilePic'])->name('profile.pic');
-    Route::get('/my-prescription', [App\Http\Controllers\FrontendController::class, 'myPrescription'])->name('my.prescription');
+
+    Route::post('/book/appointment', [App\Http\Controllers\FrontendController::class, 'store'])->name('booking.appointment')->middleware('verified');
+    Route::get('/my-booking', [App\Http\Controllers\FrontendController::class, 'myBookings'])->name('my.booking')->middleware('verified');
+    Route::get('/user-profile', [App\Http\Controllers\ProfileController::class, 'index'])->middleware('verified');
+    Route::post('/user-profile', [App\Http\Controllers\ProfileController::class, 'store'])->name('profile.store')->middleware('verified');
+    Route::post('/profile-pic', [App\Http\Controllers\ProfileController::class, 'profilePic'])->name('profile.pic')->middleware('verified');
+    Route::get('/my-prescription', [App\Http\Controllers\FrontendController::class, 'myPrescription'])->name('my.prescription')->middleware('verified');
     
 
             
 });
-
 
 
 

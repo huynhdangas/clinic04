@@ -37,10 +37,14 @@
                 </div>
                     
                 <div class="card-body">
-                    <p>Date: {{$test->created_at}}</p>
-                    <p>Date: {{$test->test_result}}</p>
+                    <p>Ngày: {{$test->created_at}}</p>
+                    <p>Kết quả: {{$test->test_result}}</p>
+                    <p>Hình ảnh:</p>
+                    <img src="{{asset('testImage')}}/{{$test->image_test}}" width="120" alt="">
                     
+
                 </div>
+                
             </div>
         
     </div>

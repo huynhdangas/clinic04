@@ -78,7 +78,7 @@
                                 </td>
                                 <td>
                                     
-                                     @if($booking->test_status == 0)
+                                    @if($booking->test_status == 0)
                                     <a href="{{route('accept.test', [$booking->id])}}"><button class="btn btn-primary">Test</button> </a>
                                     @else
                                     <a href="{{route('test.pre',[$booking->id])}}" class="btn btn-secondary">View Test</a>

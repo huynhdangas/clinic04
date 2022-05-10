@@ -3,7 +3,7 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleModal{{$booking->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-      <form method="post" action="{{route('test')}}">@csrf
+      <form method="post" enctype="multipart/form-data" action="{{route('test')}}">@csrf
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Test Result</h5>
@@ -18,6 +18,11 @@
             <div class="form-group">
                 <label for="">Test Result</label>
                 <input type="text" name="test_result" class="form-control" required="">
+            </div>
+
+            <div class="form-group">
+                <label for="">Hình ảnh test</label>
+                <input type="file" name="image_test" class="form-control" required="">
             </div>
             
       </div>

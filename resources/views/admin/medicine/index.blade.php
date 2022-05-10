@@ -45,7 +45,7 @@
                     <thead>
                         <tr>
                             <th>Medicine</th>
-                            
+                            <th>Cách dùng</th>
                             <th>&nbsp;</th>
                             <th>&nbsp;</th>
 
@@ -58,16 +58,17 @@
                         @foreach($medicines as $medicine)
                         <tr>
                             <td>{{$medicine->medicine}}</td>
+                            <td>{{$medicine->using}}</td>
                             
                             <td>
+                                
                                 <div class="table-actions">
                                     
                                     <a href="{{route('medicine.edit', [$medicine->id])}}"><i class="ik ik-edit-2"></i></a>
-                                    
                                     <form action="{{route('medicine.destroy', [$medicine->id])}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit"><i class="ik ik-trash-2"></i></button>
+                                        <button type="submit" style="border: none; background: #fff;"><i class="ik ik-trash-2" style="color: #bcc1c6;"></i></button>
                                     </form>
                                 </div>
                             </td>

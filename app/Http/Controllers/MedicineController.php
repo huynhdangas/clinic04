@@ -40,6 +40,7 @@ class MedicineController extends Controller
     {
         // dd($request->all());
         $this->validate($request, ['medicine' => 'required']);
+        $this->validate($request, ['using' => 'required']);
         Medicine::create($request->all());
         return redirect()->back()->with('message', 'Medicine created successfully');
     }
@@ -77,8 +78,10 @@ class MedicineController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, ['medicine' => 'required']);
+        $this->validate($request, ['using' => 'required']);
         $medicine = Medicine::find($id);
         $medicine->medicine = $request->medicine;
+        $medicine->using = $request->using;
         $medicine->save();
         return redirect()->route('medicine.index')->with('message', 'Medicine updated successfully');
     }

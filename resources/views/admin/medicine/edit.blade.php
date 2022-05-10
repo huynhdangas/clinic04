@@ -51,6 +51,21 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                <label>Cách dùng</label>
+                            
+                                <input type="text" class="form-control @error('using') is-invalid @enderror" value="{{$medicine->using}}" name="using" placeholder="Cách dùng">
+                                @error('using')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                </div>
+                            </div>
+                        </div>
                     
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     

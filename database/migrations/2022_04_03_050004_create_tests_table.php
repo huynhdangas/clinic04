@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('id_booking');
             $table->string('test_result');
+            $table->string('image_test');
             $table->timestamps();
         });
     }

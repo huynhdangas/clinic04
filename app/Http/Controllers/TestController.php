@@ -17,8 +17,15 @@ class TestController extends Controller
     }
 
     public function store(Request $request) {
-        $data = $request->all();
-        Test::create($data);
+        // $data = $request->all();
+        $newImageName = time() . '-' . $request->test_result . '.' . $request->image_test->extension();
+        $request->image_test->move(public_path('testImage'), $newImageName);
+              
+        Test::create([
+            'test_result' => $request->test_result,
+            'image_test' => $newImageName,
+            'id_booking' => $request->id_booking
+        ]);
         return redirect()->back()->with('message', 'Test result created.');
 
     }

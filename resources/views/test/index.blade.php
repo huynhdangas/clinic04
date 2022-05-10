@@ -74,6 +74,8 @@
             </div>
         
     </div>
+    
+
     @include('test.form')
 
 @endsection
